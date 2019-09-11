@@ -1,0 +1,11 @@
+{
+  "name": "vue-architecture-patterns",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Lumkani/vue-architecture-patterns.git",
+  "author": "shailen <shailen@lumkani.com>",
+  "license": "MIT",
+  "dependencies": {
+    "vuepress": "^1.0.4"
+  }
+}
