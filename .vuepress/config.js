@@ -12,5 +12,8 @@ module.exports = {
         path: '/RFCs/'
       }
     ]
+  },
+  markdown: {
+    lineNumbers: true
   }
 }

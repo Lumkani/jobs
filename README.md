@@ -19,6 +19,7 @@ Here is an example of an RFC: [BaseInput Component](/RFCs/#baseinput)
 It's pretty simple! This is how you do it:
 
 1. Clone this repo
+2. Create a branch using this pattern: `rfc/<name-of-your-rfc>`
 2. Look for the folder `/RFCs`
 3. Create a markdown file with the name of your RFC `<the-best-rfc-ever>.md` in `/RFCs` folder
 4. Submit your RFC via a pull request
