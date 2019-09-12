@@ -6,6 +6,10 @@ module.exports = {
       {
         title: 'Components',
         path: '/components/'
+      },
+      {
+        title: 'RFCs',
+        path: '/RFCs/'
       }
     ]
   }
