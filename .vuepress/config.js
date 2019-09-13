@@ -9,7 +9,7 @@ module.exports = {
       },
       {
         title: 'RFCs',
-        path: '/RFCs/'
+        path: '/rfcs/'
       }
     ]
   },
