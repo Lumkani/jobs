@@ -66,12 +66,15 @@ Here is the component created called `BaseInput` which abstracts a lot of the bo
     :value="props.value"
     float-label
     :label="props.label"
-    :type="props ? props.type : 'text'"
-    :counter="props.counter ? props.counter : false"
-    error-message="This field is required"
-    :error="props.onError"
-    @change="listeners.input($event.target.value)"
-    @blur="props.onBlur"
+    :type="props.type || 'text'"
+    :counter="props.counter || false"
+    :error-message="props.errorMessage || 'This field is required'"
+    :error="props.onError || false"
+    v-on="{
+      blur: props.onBlur || (() => {}),
+      input: props.counter ? (e) => listeners.input(e) : (() => {}),
+      change: !props.counter ? (e) => listeners.input(e.target.value) : (() => {})
+    }"
   />
 </template>
 ```
@@ -123,3 +126,31 @@ export default {
 ```
 
 `passValidationProps` is a helper function that is made global via Vue Mixin, you can use `dot-notation` to reference validation logic.
+
+Here is the mixin:
+
+```js
+import Vue from 'vue';
+
+Vue.mixin({
+  methods: {
+    getValidators(prop) {
+      const { $error, $touch } = prop
+        .split('.')
+        .reduce((result, val) => result[val], this.$v)
+
+      return {
+        onError: $error,
+        onBlur: $touch,
+      };
+    },
+  },
+});
+```
+
+### New concepts
+
+* [Functional Vue Components](https://vue-loader.vuejs.org/guide/functional.html)
+* [Vue Mixins](https://vuejs.org/v2/guide/mixins.html)
+* [`v-bind` Object syntax](https://vuejs.org/v2/api/#v-bind)
+* [`v-on` Object syntax](https://vuejs.org/v2/api/#v-on)
