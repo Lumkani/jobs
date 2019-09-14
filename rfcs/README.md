@@ -155,7 +155,7 @@ Vue.mixin({
 * [`v-bind` Object syntax](https://vuejs.org/v2/api/#v-bind)
 * [`v-on` Object syntax](https://vuejs.org/v2/api/#v-on)
 
-## Alternative, possibly better solution
+### Alternative, possibly better solution
 
 ```vue
 <script>
