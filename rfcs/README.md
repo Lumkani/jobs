@@ -154,3 +154,49 @@ Vue.mixin({
 * [Vue Mixins](https://vuejs.org/v2/guide/mixins.html)
 * [`v-bind` Object syntax](https://vuejs.org/v2/api/#v-bind)
 * [`v-on` Object syntax](https://vuejs.org/v2/api/#v-on)
+
+## Alternative, possibly better solution
+
+```vue
+<script>
+const getValidators = (ctx) => {
+  const { $error, $touch } = ctx.data.model.expression
+    .split('.')
+    .reduce((result, val) => result[val], ctx.parent.$v)
+
+  return {
+    onError: $error || false,
+    onBlur: $touch || (() => {}) ,
+  };
+};
+
+const getEvents = (ctx) => {
+  return ctx.props.counter ? {
+    input: (e) => ctx.listeners.input(e),
+  } : {
+    change: (e) => ctx.listeners.input(e.target.value),
+  };
+};
+
+export default {
+  functional: true,
+  render: (h, ctx) => {
+    const { onError, onBlur } = getValidators(ctx);
+
+    return h('q-input', {
+      props: {
+        floatLabel: true,
+        error: onError,
+        ...ctx.props
+      },
+      on: {
+        blur: onBlur,
+        ...getEvents(ctx)
+      }
+    });
+  }
+}
+</script>
+```
+
+The above solution removes the need to inject the `validators` into the component through the `v-bind` but the solution is a more lower-level solution compared to templates
