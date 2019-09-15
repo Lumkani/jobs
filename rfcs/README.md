@@ -88,14 +88,14 @@ Here is the component in action
       v-model="beneficiary.first_name"
       v-bind="{ 
         label: 'Beneficiary First Name', 
-        ...passValidationProps('beneficiary.first_name') 
+        ...getValidators('beneficiary.first_name') 
       }"
     />
     <base-input
       v-model="beneficiary.last_name"
       v-bind="{ 
         label: 'Beneficiary Surname', 
-        ...passValidationProps('beneficiary.last_name') 
+        ...getValidators('beneficiary.last_name') 
       }"
     />
   </form>
@@ -125,7 +125,7 @@ export default {
 </script>
 ```
 
-`passValidationProps` is a helper function that is made global via Vue Mixin, you can use `dot-notation` to reference validation logic.
+`getValidators` is a helper function that is made global via Vue Mixin, you can use `dot-notation` to reference validation logic.
 
 Here is the mixin:
 
