@@ -1,1 +1,0 @@
-## BaseInput <Badge text="component" type="tip" />
