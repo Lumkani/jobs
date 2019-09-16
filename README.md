@@ -21,7 +21,11 @@ It's pretty simple! This is how you do it:
 1. Clone this repo
 2. Create a branch using this pattern: `rfc/<name-of-your-rfc>`
 2. Look for the folder `/rfcs`
-3. Create a markdown file with the name of your RFC `<the-best-rfc-ever>.md` in `/RFCs` folder
+3. Create a markdown file with the name of your RFC `<the-best-rfc-ever>.md` in `/rfcs` folder
 4. Submit your RFC via a pull request
+
+:::tip
+You can use the [Quasar Codepen Template](https://codepen.io/rstoenescu/pen/VgQbdx) for quick prototyping of an idea
+:::
 
 That's basically it! Easy right? :muscle:

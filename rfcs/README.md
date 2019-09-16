@@ -199,4 +199,6 @@ export default {
 </script>
 ```
 
-The above solution removes the need to inject the `validators` into the component through the `v-bind` but the solution is a more lower-level solution compared to templates
+The above solution removes the need to inject the `validators` into the component through the `v-bind` but the solution is more lower-level compared to templates. I would actually prefer to use JSX in this case.
+
+The above solution makes use of Vue.js' [Render Function](https://vuejs.org/v2/guide/render-function.html) which is a lower-level way of creating components, we have much more power over the component logic

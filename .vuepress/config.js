@@ -7,7 +7,14 @@ module.exports = {
         title: 'RFCs',
         path: '/rfcs/'
       }
-    ]
+    ],
+    nav: [
+      {
+        text: 'Quasar Codepen Template',
+        link: 'https://codepen.io/rstoenescu/pen/VgQbdx'
+      }
+    ],
+    displayAllHeaders: true
   },
   markdown: {
     lineNumbers: true
