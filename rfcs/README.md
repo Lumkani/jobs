@@ -202,3 +202,49 @@ export default {
 The above solution removes the need to inject the `validators` into the component through the `v-bind` but the solution is more lower-level compared to templates. I would actually prefer to use JSX in this case.
 
 The above solution makes use of Vue.js' [Render Function](https://vuejs.org/v2/guide/render-function.html) which is a lower-level way of creating components, we have much more power over the component logic
+
+Here is an example of the alternative solution in action, no more `getValidators`
+
+```diff
+<template>
+  <form>
+    <base-input
+      v-model="beneficiary.first_name"
+      v-bind="{ 
+        label: 'Beneficiary First Name', 
+-        ...getValidators('beneficiary.first_name')
+      }"
+    />
+    <base-input
+      v-model="beneficiary.last_name"
+      v-bind="{ 
+        label: 'Beneficiary Surname', 
+-        ...getValidators('beneficiary.last_name') 
+      }"
+    />
+  </form>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      beneficiary: {
+        first_name: '',
+        last_name: '',
+      },
+    };
+  },
+  validations: {
+    beneficiary: {
+      first_name: {
+        required,
+      },
+      last_name: {
+        required,
+      },
+    },
+  },
+};
+</script>
+```
