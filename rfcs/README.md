@@ -162,11 +162,11 @@ Vue.mixin({
 const getValidators = (ctx) => {
   const { $error, $touch } = ctx.data.model.expression
     .split('.')
-    .reduce((result, val) => result[val], ctx.parent.$v)
+    .reduce((result, val) => result[val], ctx.parent.$v);
 
   return {
     onError: $error || false,
-    onBlur: $touch || (() => {}) ,
+    onBlur: $touch || (() => {}),
   };
 };
 
@@ -187,15 +187,15 @@ export default {
       props: {
         floatLabel: true,
         error: onError,
-        ...ctx.props
+        ...ctx.props,
       },
       on: {
         blur: onBlur,
-        ...getEvents(ctx)
-      }
+        ...getEvents(ctx),
+      },
     });
-  }
-}
+  },
+};
 </script>
 ```
 
