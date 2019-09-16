@@ -17,6 +17,6 @@ module.exports = {
     displayAllHeaders: true
   },
   markdown: {
-    lineNumbers: true
+    lineNumbers: !true
   }
 }
