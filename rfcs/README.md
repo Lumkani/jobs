@@ -159,10 +159,10 @@ Vue.mixin({
 
 ```vue
 <script>
-const getValidators = (ctx) => {
-  const { $error, $touch } = ctx.data.model.expression
+const getValidators = ({ data, parent }) => {
+  const { $error, $touch } = data.model.expression
     .split('.')
-    .reduce((result, val) => result[val], ctx.parent.$v);
+    .reduce((result, val) => result[val], parent.$v);
 
   return {
     onError: $error || false,
@@ -170,11 +170,11 @@ const getValidators = (ctx) => {
   };
 };
 
-const getEvents = (ctx) => {
-  return ctx.props.counter ? {
-    input: (e) => ctx.listeners.input(e),
+const getEvents = ({ props, listeners }) => {
+  return props.counter ? {
+    input: (e) => listeners.input(e),
   } : {
-    change: (e) => ctx.listeners.input(e.target.value),
+    change: (e) => listeners.input(e.target.value),
   };
 };
 
@@ -187,6 +187,7 @@ export default {
       props: {
         floatLabel: true,
         error: onError,
+        errorMessage: ctx.props.errorMessage || 'This field is required',
         ...ctx.props,
       },
       on: {
