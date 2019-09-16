@@ -205,21 +205,19 @@ The above solution makes use of Vue.js' [Render Function](https://vuejs.org/v2/g
 
 Here is an example of the alternative solution in action, no more `getValidators`
 
-```diff
+```vue
 <template>
   <form>
     <base-input
       v-model="beneficiary.first_name"
       v-bind="{ 
         label: 'Beneficiary First Name', 
--        ...getValidators('beneficiary.first_name')
       }"
     />
     <base-input
       v-model="beneficiary.last_name"
       v-bind="{ 
         label: 'Beneficiary Surname', 
--        ...getValidators('beneficiary.last_name') 
       }"
     />
   </form>
