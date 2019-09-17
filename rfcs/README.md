@@ -200,7 +200,7 @@ export default {
 </script>
 ```
 
-Using JSX instead:
+#### Using JSX instead
 
 ```vue
 <script>
