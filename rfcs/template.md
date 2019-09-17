@@ -1,12 +1,14 @@
+- Author: (Insert your name and surname)
 - Start Date: (fill me in with today's date, YYYY-MM-DD)
+- Implementation example link: (Use [Quasar Codepen Template](https://codepen.io/rstoenescu/pen/VgQbdx))
 
 # Summary
 
-Brief explanation of the feature.
+Brief explanation of the feature, concept and etc...
 
 # Basic example
 
-If the proposal involves a new or changed API, include a basic code example.
+Include a basic code example.
 Omit this section if it's not applicable.
 
 # Motivation

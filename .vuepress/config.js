@@ -12,6 +12,10 @@ module.exports = {
       {
         text: 'Quasar Codepen Template',
         link: 'https://codepen.io/rstoenescu/pen/VgQbdx'
+      },
+      {
+        text: 'RFC Template',
+        link: 'https://lumkani-vue-patterns.netlify.com/rfcs/template.html'
       }
     ],
     displayAllHeaders: true
