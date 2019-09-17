@@ -200,6 +200,54 @@ export default {
 </script>
 ```
 
+Using JSX instead:
+
+```vue
+<script>
+const getValidators = ({ data, parent }) => {
+  const { $error, $touch } = data.model.expression
+    .split('.')
+    .reduce((result, val) => result[val], parent.$v);
+
+  return {
+    onError: $error || false,
+    onBlur: $touch || (() => {}),
+  };
+};
+
+const getEvents = ({ props, listeners }) => {
+  return props.counter ? {
+    input: (e) => listeners.input(e),
+  } : {
+    change: (e) => listeners.input(e.target.value),
+  };
+};
+
+export default (ctx) => {
+  const { onError, onBlur } = getValidators(ctx);
+
+  const props = {
+    floatLabel: true,
+    error: onError,
+    errorMessage: ctx.props.errorMessage || 'This field is required',
+    ...ctx.props,
+  }
+
+  const events = {
+    blur: onBlur,
+    ...getEvents(ctx),
+  }
+
+  return (
+    <QInput 
+      props={props} 
+      on={events} 
+    />
+  )
+}
+</script>
+```
+
 The above solution removes the need to inject the `validators` into the component through the `v-bind` but the solution is more lower-level compared to templates. I would actually prefer to use JSX in this case.
 
 The above solution makes use of Vue.js' [Render Function](https://vuejs.org/v2/guide/render-function.html) which is a lower-level way of creating components, we have much more power over the component logic
