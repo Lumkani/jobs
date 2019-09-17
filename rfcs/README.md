@@ -225,23 +225,20 @@ const getEvents = ({ props, listeners }) => {
 
 export default (ctx) => {
   const { onError, onBlur } = getValidators(ctx);
-
-  const props = {
-    floatLabel: true,
-    error: onError,
-    errorMessage: ctx.props.errorMessage || 'This field is required',
-    ...ctx.props,
-  }
-
-  const events = {
-    blur: onBlur,
-    ...getEvents(ctx),
-  }
+  const events = getEvents(ctx);
 
   return (
     <QInput 
-      props={props} 
-      on={events} 
+      props={{
+        floatLabel: true,
+        error: onError,
+        errorMessage: ctx.props.errorMessage || 'This field is required',
+        ...ctx.props,
+      }} 
+      on={{
+        blur: onBlur,
+        ...events,
+      }} 
     />
   )
 }
