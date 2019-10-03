@@ -9,5 +9,9 @@ A component model is model that describes the way we should build our components
 * **Atom**: The smallest component possible, these are usually buttons, labels, icons and so fourth.
 * **Molecule**: These are contextual components that are made of one, two, or three atoms. They usually form basic inputs, media cards and so fourth.
 * **Organism**: These form a distinct section of your page, such as headers, complex forms, data tables and etc...
-* **Page**: Used as an entry point for all organisms.
+* **Page**: Used as an entry point for all organisms. Your page component should only be composed of organisms.
 * **Web**: Responsible for providing context to the page, such as routing.
+
+:::tip
+**Atoms** and **Molecules** are the most reusable components out of the **Component Model** as both of them have the least amount of context. They tend to have very little props.
+:::
