@@ -1,6 +1,6 @@
 ## Component Model
 
-A component model is model that describes the way we should build our components in our Vue-based applications.
+A component model is a model that describes the way we should build our components in our Vue-based applications. It is heavily based off the [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) methodology
 
 <small><i>Component Model Diagram</i></small>
 
@@ -15,3 +15,9 @@ A component model is model that describes the way we should build our components
 :::tip
 **Atoms** and **Molecules** are the most reusable components out of the **Component Model** as both of them have the least amount of context. They tend to have very little props.
 :::
+
+Here at Lumkani we use Quasar as a UI Component library, so that means that it already provides us with *Atoms*, *Molecules* and possibly *Organisms*.
+
+In most cases we would probably want to customize/extend some of the Quasar components to suite our needs. So if we want to extend a Molecule, we would just need to create a new Molecule with our necessary features.
+
+For example, lets say we have a Quasar component called `QInput` (which is a molecule) and I want to add some custom features to it and we called it `LumkaniInput`, it should still be a molecule. So it's very important to keep in mind in what way you are extending components as the Component Model tries to create a framework for reasoning about when to create components
