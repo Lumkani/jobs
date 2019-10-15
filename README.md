@@ -16,4 +16,4 @@ Our work culture is focused on largely autonomous projects that are managed by t
 
 ### Positions available
 
-* [Fullstack Developer](/positions/frontend-developer.html)
+* [Fullstack Developer](/positions/fullstack-developer.html)
