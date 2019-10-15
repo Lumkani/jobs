@@ -1,4 +1,4 @@
-## Frontend developer position
+## Fullstack developer position
 
 ### The position
 
